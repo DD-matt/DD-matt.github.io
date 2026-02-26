@@ -2,8 +2,8 @@
 Assignment create a page that has a form on it to register a new account and capture demographic data using HTML, CSS, and JavaScript.
 
 Key deliverables:
-1. Data dictionary of data to collect in the form of an excel spreadsheet
-2. Create a diagram of how i want the form webpage to look like
+1. Data dictionary of data to collect in the form of an excel spreadsheet (Done)
+2. Create a diagram of how i want the form webpage to look like (Done)
 3. Create the acutal webpage
 
 

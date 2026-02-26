@@ -1,0 +1,58 @@
+body {
+    margin: 0px;
+    background-color: #000847;
+}
+
+main {
+    margin-top: 50px;
+}
+
+table#headerTable {
+    width: 100%;
+    background-image: linear-gradient(to right, #4D61FF, #914DFF);
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+table#headerTable th#companyName {
+    text-align: left;
+    font-size: xx-large;
+}
+
+table#headerTable th#tdDate {
+    text-align: center;
+}
+
+table#headerTable th#links {
+    text-align: right;
+    vertical-align: bottom;
+    height: 50px;
+}
+
+div#form {
+    background-color: white;
+    width: 50%;
+    border-top: 1px solid #473F00;
+    border-left: 1px solid #473F00;
+    border-bottom: 5px solid #473F00;
+    border-right: 5px solid #473F00;
+    padding: 25px;
+    margin: auto;
+}
+
+.container {
+    display: -ms-inline-grid;
+    grid-template-columns: auto auto auto;
+    background-image: linear-gradient(to right, #1732ff, #7119ff);
+    padding: 10px;
+}
+
+.container span {
+  background-color: #f1f1f1;
+  border: 1px solid black;
+  padding: 5px;
+  font-size: 15px;
+  text-align: center;
+}
