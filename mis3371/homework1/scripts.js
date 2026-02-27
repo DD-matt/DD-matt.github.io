@@ -1,5 +1,12 @@
 
-
+// <!--
+// Program name: scripts.js
+// Author: Matthew Castaneda
+// Date created: 2/5/2026
+// Date last edited: 2/27/2026
+// Version: 1.3
+// Description: the javascript for the index.html for HW1
+// !-->
 
 async function load() {
 
@@ -11,15 +18,6 @@ async function load() {
 }
 
 load();
-
-
-
-// if (fName === "")
-// {
-//     document.getElementById("fnameError").textContent =
-//         "First name required";
-//     valid = false;
-// }
 
 const form = document.getElementById("registration");
 

@@ -5,9 +5,8 @@ Program name: index.html
 Author: Matthew Castaneda
 Date created: 2/5/2026
 Date last edited: 2/26/2026
-Version: 1.2
-Description: The html for the patient registration form complete with styles.css
-             and scripts.js
+Version: 1.3
+Description: The html for the patient registration form
 !-->
 <html lang="en">
 <head>
@@ -29,44 +28,44 @@ Description: The html for the patient registration form complete with styles.css
             <h1 id="title">
                 Patient Registration Form:
             </h1>
-                <form name="registration" id="registration", action="thankyou.html">
+                <form name="registration" id="registration" action="thankyou.html">
                     
                     <div id="nameFields">
                     <label for="fname">First Name, </label>
                     <label for="minitial"> MI, </label>
                     <label for="lname">Last Name: </label>
-                    <input type="text" id="fname" size="30" maxlength="30" required pattern="^[A-Za-z]+$" title="Letters Only">
-                    <input type="text" id="minitial" size="1" maxlength="1" required pattern="^[A-Za-z]+$" title="Letters Only"> 
-                    <input type="text" id="lname" size="30" maxlength="30" required pattern="^[A-Za-z]+$" title="Letters Only">
+                    <input type="text" id="fname" name="fname" placeholder="John" size="30" maxlength="30" required pattern="^[A-Za-z]+$" title="Letters Only">
+                    <input type="text" id="minitial" name="minitial" placeholder="M" minlength="1" maxlength="1" required pattern="^[A-Za-z]+$" title="Letters Only"> 
+                    <input type="text" id="lname" name="lname" placeholder="Doe" size="30" maxlength="30" required pattern="^[A-Za-z]+$" title="Letters Only">
                     </div>
 
                     <div id="dateOfBirthField">
                         <label for="dateOfBirth">Date of Birth (MM/DD/YYYY): </label>
-                        <input type="text" id="dateOfBirth" required pattern="^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$", title="Format Must be in: MM/DD/YYYY">
+                        <input type="text" id="dateOfBirth" name="dateOfBirth" placeholder="05/20/2000" required pattern="^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$" title="Format Must be in: MM/DD/YYYY">
                     </div>
 
                     <div id="ssnField">
                         <label for="ssn">SSN (no dashes): </label>
-                        <input type="password" id="ssn" required maxlength="9">
+                        <input type="password" id="ssn" name="ssn" placeholder="123456789" required maxlength="9">
                     </div>
                     
                     <div id="addressLineField1">
                         <label for="addressline1">Main Address: </label>
-                        <input type="text" id="addressline1" size="30" maxlength="30" required>
+                        <input type="text" id="addressline1" name="addressline1" placeholder="5728 Brickroad Dr." size="30" maxlength="30" required>
                     </div>
 
                     <div id="addressLineField2">
                         <label for="addressline2">Secondary Address: </label>
-                        <input type="text" id="addressline2" size="30" maxlength="30">
+                        <input type="text" id="addressline2" name="addressline2" placeholder="8752 Yellowlane Rd." size="30" maxlength="30">
                     </div>
 
                     <div id="cityStateZipFields">
                         <label for="city">City,</label>
-                        <label for="state" value="Default"> State,</label>
+                        <label for="state"> State,</label>
                         <label for="zipcode">Zipcode: </label>
 
-                        <input type="text" id="city" size="30" maxlength="30" required pattern="^[A-Z]{2}$", title="Needs to be uppercase abbreviated state name or select from list">
-                        <input list="state" required>
+                        <input type="text" id="city" name="city" required placeholder="Houston" size="30" maxlength="30">
+                        <input list="state" id="state" name="state" placeholder="Tx" required pattern="^[A-Z]{2}$" title="Needs to be uppercase abbreviated state name or select from list">
                             <datalist id="state">
                                 <option value="AL">AL</option>
                                 <option value="AK">AK</option>
@@ -122,30 +121,30 @@ Description: The html for the patient registration form complete with styles.css
                                 <option value="PR">PR</option>
                             </datalist>
  
-                        <input type="text" id="zipcode" size="10" minlength="5" maxlength="10" required pattern="^\d{5}(-\d{4})?$" title="Zipcode either needs to be 12345 or 12345-4444 format">
+                        <input type="text" id="zipcode" name="zipcode" placeholder="77856 or 12345-4444" size="15" minlength="5" maxlength="10" required pattern="^\d{5}(-\d{4})?$" title="Zipcode either needs to be 12345 or 12345-4444 format">
                     </div>
 
                     <div id="emailAddressField">
                         <label for="emailAddress">Email Address: </label>
-                        <input type="email" id="emailAddress" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$", title="Not a valid email">
+                        <input type="email" id="emailAddress" name="emailAddress" placeholder="example@gmail.com" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" title="Not a valid email">
                     </div>
 
                     <div id="personalWordsField">
                         <label for="message">Please Describe Your Symptoms:</label><br>
-                        <textarea id="message" name="message" rows="3" cols="50"></textarea>
+                        <textarea id="message" name="message" placeholder="Tell us a bit about yourself and symptoms." rows="3" cols="50"></textarea>
                     </div>
 
                     <div id="checkboxFields">
                         <h3>Please check all that apply</h3>
-                        <input type="checkbox" id="disease1", name="disease1" value="Covid">
+                        <input type="checkbox" id="disease1" name="disease1" value="Covid">
                         <label for="disease1">Covid</label><br>
-                        <input type="checkbox" id="disease2", name="disease2" value="Flu">
+                        <input type="checkbox" id="disease2" name="disease2" value="Flu">
                         <label for="disease2">Flu</label><br>
-                        <input type="checkbox" id="disease3", name="disease3" value="Arthritis">
+                        <input type="checkbox" id="disease3" name="disease3" value="Arthritis">
                         <label for="disease3">Arthritis</label><br>
-                        <input type="checkbox" id="disease4", name="disease4" value="Asthma">
+                        <input type="checkbox" id="disease4" name="disease4" value="Asthma">
                         <label for="disease4">Asthma</label><br>
-                        <input type="checkbox" id="disease5", name="disease5" value="Other">
+                        <input type="checkbox" id="disease5" name="disease5" value="Other">
                         <label for="disease5">Other</label><br>
                     </div>
                     
@@ -154,13 +153,13 @@ Description: The html for the patient registration form complete with styles.css
                         <input type="radio" id="male" name="gender" value="male">
                         <label for="male">Male</label><br>
                         <input type="radio" id="female" name="gender" value="female">
-                        <label for="css">Female</label><br>
+                        <label for="female">Female</label><br>
                         <input type="radio" id="other" name="gender" value="other">
                         <label for="other">Other</label>
 
                         <h3>Have you been vaccinated?:</h3>
                         <input type="radio" id="vYes" name="vac" value="vYes">
-                        <label for="vyes">Yes</label><br>
+                        <label for="vYes">Yes</label><br>
                         <input type="radio" id="vNo" name="vac" value="vNo">
                         <label for="vNo">No</label><br>
 
@@ -175,24 +174,24 @@ Description: The html for the patient registration form complete with styles.css
                     <div id="sliderField">
                         <label for="feel">On a scale of 1-10 how well do you feel
                             (10 means feeling really well)?:</label>
-                        <input type="range" id="feel" name="feel" min="0" max="10">
+                        <input type="range" id="feel" name="feelmeter" min="0" max="10">
                     </div>
 
                     <div id="usernameField">
                         <label for="usr">Type Username: </label>
-                        <input type="text" id="usr" required maxlength="20" size="20">
+                        <input type="text" id="usr" name="usr" placeholder="JohnDoe2559" required maxlength="20" size="20">
                     </div>
 
                     <div id="passwordField">
                         <label for="password">Type Password: </label>
-                        <input type="password" id="password" required maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$"
+                        <input type="password" id="password" name="password" placeholder="johnDoe5678!" required maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$"
                          title="Password requires: a minimum of 8 characters, at least one uppercase, at least one lower case
                          at least one digit, and at least one special character.">
 
                     </div>
                     <div id="passwordConfirmField">
                         <label for="passwordConfirm">Confirm Password:</label>
-                        <input type="password" id="passwordConfirm" required maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$">
+                        <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="johnDoe5678!" required maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$">
                     </div>
 
 
