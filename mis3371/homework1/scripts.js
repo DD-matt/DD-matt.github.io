@@ -8,6 +8,7 @@
 // Description: the javascript for the index.html for HW1
 // !-->
 
+// function to load the header and footer html templates
 async function load() {
 
     header.innerHTML = await (await fetch("header.html")).text();
@@ -19,8 +20,10 @@ async function load() {
 
 load();
 
+
 const form = document.getElementById("registration");
 
+//function for validating the form using javascript when needed
 function validateForm()
 {
     let valid = true;
@@ -66,6 +69,7 @@ function validateForm()
     return valid;
 }
 
+// event listener when form is submitted colling the validate form function and if any field == false prevents form submission and gives error message.
 form.addEventListener("submit", function(event)
 {
     if (!validateForm())
