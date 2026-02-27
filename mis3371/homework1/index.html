@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+
+<!--
+Program name: index.html
+Author: Matthew Castaneda
+Date created: 2/5/2026
+Date last edited: 2/26/2026
+Version: 1.1
+Description: The html for the patient registration form complete with styles.css
+             and scripts.js
+!-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,26 +21,7 @@
 
 
 <body>
-    <header id="heading">
-        <table id="headerTable">
-            <tr>
-                <th id="companyName">J&M Medical Group <img src="assets/medical_insignia.png" width="40" height="40" alt=""></th>
-                <th id="tdDate"></th>
-                <th id="links">Todays Date | 12/30/2025 | J&MMD/Registration</th>
-            </tr>
-        </table>
-        <nav class="container">
-            <span>Main page</span>
-            <span>Medical Facilities</span>
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
-            <span>6</span>
-        </nav>
-
-    </header>
+    <div id="header"></div>
 
     <main>
 
@@ -38,17 +29,184 @@
             <h1 id="title">
                 Patient Registration Form:
             </h1>
-            <form>
-                <p>fill out:</p><input type="text">
-            </form>
+                <form name="registration" id="registration", action="thankyou.html">
+                    
+                    <div id="nameFields">
+                    <label for="fname">First Name, </label>
+                    <label for="minitial"> MI, </label>
+                    <label for="lname">Last Name: </label>
+                    <input type="text" id="fname" size="30" maxlength="30" required pattern="^[A-Za-z]+$" title="Letters Only">
+                    <input type="text" id="minitial" size="1" maxlength="1" required pattern="^[A-Za-z]+$" title="Letters Only"> 
+                    <input type="text" id="lname" size="30" maxlength="30" required pattern="^[A-Za-z]+$" title="Letters Only">
+                    </div>
+
+                    <div id="dateOfBirthField">
+                        <label for="dateOfBirth">Date of Birth (MM/DD/YYYY): </label>
+                        <input type="text" id="dateOfBirth" required pattern="^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$", title="Format Must be in: MM/DD/YYYY">
+                    </div>
+
+                    <div id="ssnField">
+                        <label for="ssn">SSN (no dashes): </label>
+                        <input type="password" id="ssn" required maxlength="9">
+                    </div>
+                    
+                    <div id="addressLineField1">
+                        <label for="addressline1">Main Address: </label>
+                        <input type="text" id="addressline1" size="30" maxlength="30" required>
+                    </div>
+
+                    <div id="addressLineField2">
+                        <label for="addressline2">Secondary Address: </label>
+                        <input type="text" id="addressline2" size="30" maxlength="30">
+                    </div>
+
+                    <div id="cityStateZipFields">
+                        <label for="city">City,</label>
+                        <label for="state" value="Default"> State,</label>
+                        <label for="zipcode">Zipcode: </label>
+
+                        <input type="text" id="city" size="30" maxlength="30" required>
+                        <input list="state" required>
+                            <datalist id="state">
+                                <option value="AL">AL</option>
+                                <option value="AK">AK</option>
+                                <option value="AR">AR</option>
+                                <option value="AZ">AZ</option>
+                                <option value="CA">CA</option>
+                                <option value="CO">CO</option>
+                                <option value="CT">CT</option>
+                                <option value="DC">DC</option>
+                                <option value="DE">DE</option>
+                                <option value="FL">FL</option>
+                                <option value="GA">GA</option>
+                                <option value="HI">HI</option>
+                                <option value="IA">IA</option>
+                                <option value="ID">ID</option>
+                                <option value="IL">IL</option>
+                                <option value="IN">IN</option>
+                                <option value="KS">KS</option>
+                                <option value="KY">KY</option>
+                                <option value="LA">LA</option>
+                                <option value="MA">MA</option>
+                                <option value="MD">MD</option>
+                                <option value="ME">ME</option>
+                                <option value="MI">MI</option>
+                                <option value="MN">MN</option>
+                                <option value="MO">MO</option>
+                                <option value="MS">MS</option>
+                                <option value="MT">MT</option>
+                                <option value="NC">NC</option>
+                                <option value="NE">NE</option>
+                                <option value="NH">NH</option>
+                                <option value="NJ">NJ</option>
+                                <option value="NM">NM</option>
+                                <option value="NV">NV</option>
+                                <option value="NY">NY</option>
+                                <option value="ND">ND</option>
+                                <option value="OH">OH</option>
+                                <option value="OK">OK</option>
+                                <option value="OR">OR</option>
+                                <option value="PA">PA</option>
+                                <option value="RI">RI</option>
+                                <option value="SC">SC</option>
+                                <option value="SD">SD</option>
+                                <option value="TN">TN</option>
+                                <option value="TX">TX</option>
+                                <option value="UT">UT</option>
+                                <option value="VT">VT</option>
+                                <option value="VA">VA</option>
+                                <option value="WA">WA</option>
+                                <option value="WI">WI</option>
+                                <option value="WV">WV</option>
+                                <option value="WY">WY</option>
+                                <option value="PR">PR</option>
+                            </datalist>
+ 
+                        <input type="text" id="zipcode" size="10" minlength="5" maxlength="10" required pattern="^\d{5}(-\d{4})?$" title="Zipcode either needs to be 12345 or 12345-4444 format">
+                    </div>
+
+                    <div id="emailAddressField">
+                        <label for="emailAddress">Email Address: </label>
+                        <input type="email" id="emailAddress" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$", title="Not a valid email">
+                    </div>
+
+                    <div id="personalWordsField">
+                        <label for="message">Please Describe Your Symptoms:</label><br>
+                        <textarea id="message" name="message" rows="3" cols="50"></textarea>
+                    </div>
+
+                    <div id="checkboxFields">
+                        <h3>Please check all that apply</h3>
+                        <input type="checkbox" id="disease1", name="disease1" value="Covid">
+                        <label for="disease1">Covid</label><br>
+                        <input type="checkbox" id="disease2", name="disease2" value="Flu">
+                        <label for="disease2">Flu</label><br>
+                        <input type="checkbox" id="disease3", name="disease3" value="Arthritis">
+                        <label for="disease3">Arthritis</label><br>
+                        <input type="checkbox" id="disease4", name="disease4" value="Asthma">
+                        <label for="disease4">Asthma</label><br>
+                        <input type="checkbox" id="disease5", name="disease5" value="Other">
+                        <label for="disease5">Other</label><br>
+                    </div>
+                    
+                    <div id="radioButtonFields">
+                        <h3>Gender:</h3>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label><br>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="css">Female</label><br>
+                        <input type="radio" id="other" name="gender" value="other">
+                        <label for="other">Other</label>
+
+                        <h3>Have you been vaccinated?:</h3>
+                        <input type="radio" id="vYes" name="vac" value="vYes">
+                        <label for="vyes">Yes</label><br>
+                        <input type="radio" id="vNo" name="vac" value="vNo">
+                        <label for="vNo">No</label><br>
+
+                        <h3>Do you have insurance?:</h3>
+                        <input type="radio" id="iYes" name="insurance" value="iYes">
+                        <label for="iYes">Yes</label><br>
+                        <input type="radio" id="iNo" name="insurance" value="iNo">
+                        <label for="iNo">No</label><br>
+
+                    </div>
+
+                    <div id="sliderField">
+                        <label for="feel">On a scale of 1-10 how well do you feel
+                            (10 means feeling really well)?:</label>
+                        <input type="range" id="feel" name="feel" min="0" max="10">
+                    </div>
+
+                    <div id="usernameField">
+                        <label for="usr">Type Username: </label>
+                        <input type="text" id="usr" required maxlength="20" size="20">
+                    </div>
+
+                    <div id="passwordField">
+                        <label for="password">Type Password: </label>
+                        <input type="password" id="password" required maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$"
+                         title="Password requires: a minimum of 8 characters, at least one uppercase, at least one lower case
+                         at least one digit, and at least one special character.">
+
+                    </div>
+                    <div id="passwordConfirmField">
+                        <label for="passwordConfirm">Confirm Password:</label>
+                        <input type="password" id="passwordConfirm" required maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$">
+                    </div>
+
+
+                    <input type="submit" id="submit">
+                    <input type="reset" id="reset">
+                </form>
         </div>
 
     </main>
 
 
+    <div id="footer"></div>
 
-    <script src="scripts.js"></script>
-
+    <script src="scripts.js" defer></script>
 
 </body>
 </html>

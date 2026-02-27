@@ -1,10 +1,20 @@
-body {
+html, body {
     margin: 0px;
     background-color: #000847;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 main {
     margin-top: 50px;
+    flex: 1;
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
 }
 
 table#headerTable {
@@ -40,6 +50,9 @@ div#form {
     border-right: 5px solid #473F00;
     padding: 25px;
     margin: auto;
+    margin-bottom: 50px;
+    bottom: 0;
+    left: 0;
 }
 
 .container {
@@ -56,3 +69,54 @@ div#form {
   font-size: 15px;
   text-align: center;
 }
+
+#title {
+    text-align: center;
+}
+
+div#form div {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+div#form div#personalWordsField{
+    text-align: center;
+}
+
+#footerdiv {
+    width: 100%;
+    background-image: linear-gradient(to right, #4D61FF, #914DFF);
+    padding: 15px;
+}
+
+/* table#footerdiv th#companyName {
+    display: inline;
+    text-align: left;
+    font-size: xx-large;
+}
+
+table#footerdiv th#contactUs {
+    display: inline;
+    text-align: center;
+}
+
+table#footerdiv th#AddressLinks {
+    display: inline;
+    text-align: right;
+    height: 50px;
+} */
+
+.ft-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-image: linear-gradient(to right, #4D61FF, #914DFF);
+  padding: 10px;
+}
+.ft-container div {
+  padding: 15px;
+  font-size: 15px;
+  text-align: center;
+  vertical-align: auto;
+}
+
+

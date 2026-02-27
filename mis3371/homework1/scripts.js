@@ -1,0 +1,76 @@
+
+
+
+async function load() {
+
+    header.innerHTML = await (await fetch("header.html")).text();
+    footer.innerHTML = await (await fetch("footer.html")).text();
+
+    links.textContent =
+        "Today's Date | " + new Date().toLocaleDateString()
+}
+
+load();
+
+
+
+// if (fName === "")
+// {
+//     document.getElementById("fnameError").textContent =
+//         "First name required";
+//     valid = false;
+// }
+
+const form = document.getElementById("registration");
+
+function validateForm()
+{
+    let valid = true;
+
+    const dateOfBirth = document.getElementById("dateOfBirth").value.trim();
+    const ssn = document.getElementById("ssn").value.trim();
+
+    const emailAddress = document.getElementById("emailAddress").value.trim();
+    const username = document.getElementById("usr").value.trim();
+    const password1 = document.getElementById("password").value.trim();
+    const password2 = document.getElementById("passwordConfirm").value.trim();
+    
+
+    const date = new Date(dateOfBirth);
+
+    const ssnPattern = /^\d{9}$/;
+    const userPattern = /^[A-Za-z0-9]{3,20}$/;
+
+    if (isNaN(date))
+    {
+        alert("Date given not possible");
+        valid = false;
+    }
+
+    if (!ssnPattern.test(ssn))
+    {
+        alert("SSN FIELD : No dashes, only numbers, and 9 digits");
+        valid = false;
+    }
+
+    if (!userPattern.test(username))
+    {
+        alert("USERNAME FIELD : Name must be 3-20 characters and only have letters and numbers");
+        valid = false;
+    }
+
+    if (password1 != password2)
+    {
+        alert("Passwords do not match!");
+        valid = false;
+    }
+
+    return valid;
+}
+
+form.addEventListener("submit", function(event)
+{
+    if (!validateForm())
+        event.preventDefault();
+});
+
