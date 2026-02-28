@@ -69,8 +69,8 @@ Description: The html for the patient registration form
                         <label for="zipcode">Zipcode: </label>
 
                         <input type="text" id="city" name="city" required placeholder="Houston" size="30" maxlength="30">
-                        <input list="state" id="state" name="state" placeholder="Tx" required pattern="^[A-Z]{2}$" title="Needs to be uppercase abbreviated state name or select from list">
-                            <datalist id="state">
+                        <input list="stateList" id="state" name="state" placeholder="TX" size="2" required pattern="^[A-Z]{2}$" title="Needs to be uppercase abbreviated state name or select from list">
+                            <datalist id="stateList">
                                 <option value="AL">AL</option>
                                 <option value="AK">AK</option>
                                 <option value="AR">AR</option>
@@ -183,7 +183,7 @@ Description: The html for the patient registration form
 
                     <div id="usernameField">
                         <label for="usr">Type Username: </label>
-                        <input type="text" id="usr" name="usr" placeholder="JohnDoe2559" required maxlength="20" size="20">
+                        <input type="text" id="usr" name="usr" placeholder="JohnDoe2559" required>
                     </div>
 
                     <div id="passwordField">
@@ -195,7 +195,9 @@ Description: The html for the patient registration form
                     </div>
                     <div id="passwordConfirmField">
                         <label for="passwordConfirm">Confirm Password:</label>
-                        <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="johnDoe5678!" required maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$">
+                        <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="johnDoe5678!" required maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$"
+                        title="Password requires: a minimum of 8 characters, at least one uppercase, at least one lower case
+                         at least one digit, and at least one special character AND passwords must match.">
                     </div>
 
 
