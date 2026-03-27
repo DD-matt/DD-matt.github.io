@@ -52,7 +52,7 @@ function reviewInfo() {
     const checkbox = Array.from(
     document.querySelectorAll('input[name="disease"]:checked')
     ).map(cb => cb.value);
-    const slider = document.getElementById("feel");
+    const slider = document.getElementById("feel").value;
     const emailAddress = document.getElementById("emailAddress").value.trim();
     const username = document.getElementById("usr").value.trim();
     const password1 = document.getElementById("password").value.trim();
@@ -72,7 +72,7 @@ function reviewInfo() {
         <br>
         <p><strong>Full Name: </strong>${fname} ${mname} ${lname}</p>
         <hr>
-        <p><strong>Date of Birth: </strong>${date.today}</p>
+        <p><strong>Date of Birth: </strong>${date.toLocaleDateString()}</p>
         <hr>
         <p><strong>SSN: </strong> ********</p>
         <hr>
@@ -86,13 +86,15 @@ function reviewInfo() {
         <hr>
         <p><strong>Personal Statement: </strong>${message}</p>
         <hr>
-        <p><strong>Listed Diseases: </strong><${checkbox}/p>
+        <p><strong>Listed Diseases: </strong><${checkbox.join(", ")}/p>
         <hr>
-        <p><strong>Gender: </strong>${gender}</p>
+        <p><strong>Gender: </strong>${gender ? gender.value : ''}</p>
         <hr>
-        <p><strong>Vaccinated: </strong>${vacinated}</p>
+        <p><strong>Vaccinated: </strong>${vacinated ? vacinated.value : ''}</p>
         <hr>
-        <p><strong>Insurance: </strong>${insurance}</p>
+        <p><strong>Insurance: </strong>${insurance ? insurance.value : ''}</p>
+        <hr>
+        <p><strong>Pain level: </strong>${slider}</p>
         <hr>
         <p><strong>Username: </strong>${username}</p>
         <hr>
@@ -185,10 +187,6 @@ function validateForm()
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    // const error = document.getElementById('fnameerror')
-    // if (error)
-    //     error.remove();
-
     if (!namePattern.test(fname) || !namePattern.test(mname) || !namePattern.test(lname))
     {
         errorMessage("Please only use letters for names.", "nameFields");
@@ -258,7 +256,9 @@ function validateField() {
     const namePattern = /^[A-Za-z]{1,30}$/;
     const ssnPattern = /^\d{9}$/;
     const userPattern = /^[A-Za-z0-9]{3,20}$/;
-    const passPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$/; 
+    const passPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$/;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const zipPattern = /^\d{5}(-\d{4})?$/;
 
     const value = this.value.trim();
     const date = new Date(value);
@@ -272,30 +272,54 @@ function validateField() {
         this.style.border = "";
         }
 
-    if ( (this.id === 'fname' || this.id === 'minitial' || this.id === 'lname') 
-          && namePattern.test(value)) {
+    if ( (this.id === 'fname' || this.id === 'minitial' || this.id === 'lname') ) {
 
         clearErrors("nameFields");
+
+        if (!namePattern.test(value)) {
+            errorMessage("Please only use letters for names.", "nameFields");
+        }
     }
 
-    if (!isNaN(date.getTime()) && date <= today) {
+    if (!isNaN(date.getTime())) {
         clearErrors("dateOfBirthField");
+
+        if(!(date <= today)) {
+            errorMessage("Please enter a valid date", "dateOfBirthField");
+        }
     }
 
-    if (this.id === 'ssn' && ssnPattern.test(value)) {
+    if (this.id === 'ssn') {
         clearErrors("ssnField");
+
+        if (!ssnPattern.test(value)) {
+            errorMessage("Please enter a valid ssn", 'ssnField');
+        }
     }
 
-    if (this.id === 'addressline1' && value != '') {
-        clearErrors("addressLineField1");       
+    if (this.id === 'addressline1') {
+        clearErrors("addressLineField1");
+        
+        if (!(value != '')) {
+            errorMessage("Please enter a valid address", 'addressLineField1');
+        }
     }
 
-    if ((this.id === 'stateList' && value != '') || (this.id === 'zipcode' && zipPattern.test(value))) {
+    if ((this.id === 'stateList') || (this.id === 'zipcode')) {
         clearErrors('cityStateZipFields');
+
+        if (value === '' || !zipPattern.test(value)) {
+            errorMessage('Please enter a city, state, and zipcode', 'cityStateZipFields');
+        }
     }
 
-    if(this.id === 'emailAddress' && emailPattern.test(value))
+    if(this.id === 'emailAddress') {
         clearErrors('emailAddressField');
+
+        if (!emailPattern.test(value)) {
+            errorMessage('Please enter a valid email address', 'emailAddressField');
+        }
+    }
 
     if (this.type === 'checkbox') {
         clearErrors('checkboxFields');
@@ -305,16 +329,28 @@ function validateField() {
         clearErrors('radioButtonFields')
     }
 
-    if(this.id === 'usr' && userPattern.test(value)) {
+    if(this.id === 'usr') {
         clearErrors('usernameField');
+
+        if (!userPattern.test(value)) {
+            errorMessage("Username can only contain letter A-Z, 0-9, and be between 3-20 characters", 'usernameField');
+        }
     }
 
-    if(this.id === 'password' && passPattern.test(value)) {
+    if(this.id === 'password') {
         clearErrors('passwordField');
+
+        if (!passPattern.test(value)) {
+            errorMessage("Password must have one lowercase letter, one uppercase letter, one number, one special character (! @ # $ % ^ & *) and be at least 8 characters long", 'passwordField');
+        }
     }
     
-    if(this.id === 'passwordConfirm' && value === password1) {
+    if(this.id === 'passwordConfirm') {
         clearErrors('passwordConfirmField');
+
+        if (!(value === password1)) {
+            errorMessage("Passwords do not match", 'passwordConfirmField');
+        }
     }
     
 }
@@ -335,6 +371,7 @@ for (let i=0; i<inputFields.length; i++) {
 
 }
 
+//some additional event listeners validateField calls
 document.getElementById('stateList').addEventListener("input", validateField);
 document.getElementById('stateList').addEventListener("blur", validateField);
 
