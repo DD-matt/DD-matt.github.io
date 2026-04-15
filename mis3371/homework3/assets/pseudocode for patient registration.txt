@@ -1,0 +1,70 @@
+pseudocode for patient registration form
+
+JS FUNCTION load()
+LOAD header.html and footer.html
+DISPLAY current date
+END JS FUNCTION
+
+HTML MODULE
+SHOW the registration screen to the user
+DISPLAY all form fields to the patient
+SUBMIT check errors using HTML5 tag attributes
+END HTML MODULE
+
+
+// Submission error checking
+
+JS FUNCTION validateForm()
+DEFINE valid variable to true
+DEFINE variables from the form to check
+error checking pattern follows -> IF (password1 != password2)
+SHOW passwords do not match
+SET valid to false
+ENDIF
+END JS FUNCTION
+
+// real-time error validation of fields
+
+JS FUNCTION validateField()
+IF required field empty
+SHOW a red outlined border and red colored required
+ENDIF
+ELSE do not change outline of element
+ENDELSE
+END JS FUNCTION
+
+// Add event Listeners
+
+// event listener for real time error checking
+FOR (loop through similar elements in the form)
+IF (skip submit, reset, and other optional fields)
+ENDIF
+ADD event listeners on blur and then call FUNCTION validateField
+ENDFOR
+
+//event listener to validate the whole form
+ADD event listener on submit EXECUTE FUNCTION(event)
+IF call FUNCTION validateForm() is not valid
+PREVENT form submission
+ENDIF
+
+//event listener to reset the form values and styles
+ADD event listener on reset EXECUTE FUNCTION()
+FOR all elements in the form that take user input
+SET element border style to NULL
+ENDFOR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
