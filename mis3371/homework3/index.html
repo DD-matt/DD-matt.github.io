@@ -15,7 +15,7 @@ Description: The html for the patient registration form
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>J&M Medical Group</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/medical_insignia.png" type="image/x-icon">
 </head>
 
 
@@ -25,21 +25,8 @@ Description: The html for the patient registration form
     <main>
 
         <!-- Main form -->
-        <div id="notes">
-            <h1>My reflection on HW2: </h1>
-            <p>What the form is supposed to be doing is taking in the requested input from the user with real-time and submission JS based error checking. There is a submit, review, and reset buttons that all do what they're supposed minus a missed bug here or there.
-            </p>
-
-            <p>I know there were many lines of code I could iterate through using for loops, but I was running out of time so I brute forced it.
-            </p>
-
-            <p>I was happy with getting the whole form and functionality working with JS and no errors, utilizing functions and for loops to significantly cut down the amount of lines i used. I am satisfied with my effort and result.
-            </p>
-
-            <p> I was not happy with not having enough time to enhance the html or css. I would have like to redo my html and css from the ground up, as I have been reviewing a lot of html and css to get a better understanding of it.
-                
-            </p>
-        </div>
+        <!-- <div id="notes">
+        </div> -->
         <div id="form">
 
             <div class="bubbles">
@@ -232,8 +219,9 @@ Description: The html for the patient registration form
                     <div class="bubbles">
 
                         <div id="sliderField">
-                            <label for="feel">On a scale of 1-10 how well do you feel
-                                (10 means feeling really well)?:</label>
+                            <label for="feel">On a scale of 0-10 how well do you feel
+                                (10 means feeling really well)?: <span id=rangeVal><strong>5</strong></span>
+                            </label>
                             <input type="range" id="feel" name="feelmeter" min="0" max="10",>
                         </div>
                         
@@ -243,7 +231,7 @@ Description: The html for the patient registration form
 
                         <div id="usernameField">
                             <label for="usr">Type Username: </label>
-                            <input type="text" id="usr" name="usr" placeholder="JohnDoe2559" required>
+                            <input type="text" id="usr" name="usr" placeholder="JohnDoe2559" required minlength="3", maxlength="20">
                         </div>
                         
                     </div>

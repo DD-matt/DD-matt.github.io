@@ -134,7 +134,7 @@ input[type=submit], button#review, input[type=reset] {
     cursor: pointer;
 }
 
-input[type=text], select, input[type=date], input[type=password], textarea, input[type=email] {
+input[type=text], select, input[type=date], input[type=password], textarea, input[type=email], input[type=range] {
   width: 100%;
   padding: 12px;
   margin: 8px 0;
@@ -162,21 +162,21 @@ div#reviewSection {
 
 .container {
     background-image: linear-gradient(to right, #1732ff, #7119ff);
-    padding: 10px;
+    padding: 20px;
 }
 
 .container span {
   background-color: #acb6fe;
   margin: 5px;
-  padding: 5px;
-  font-size: 15px;
+  padding: 10px;
+  font-size: 0.80em;
   text-align: center;
   border-radius: 15px;
 }
 
 @media screen and (max-width: 600px) {
-    .container span {
-        float: none;
+    .container, .container span {
+        float: right;
         width: 100%;
     }
 }
@@ -187,6 +187,11 @@ div#reviewSection {
 
 #title {
     text-align: center;
+}
+
+#rangeVal {
+    color: #41ba49fb;
+    font-size: 1.5rem;
 }
 
 div#form div {

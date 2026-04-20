@@ -65,8 +65,8 @@ function reviewInfo() {
     const date = new Date(dateOfBirth);
 
 
-    const reviewText = document.createElement("div");
-    const node = document.createTextNode(''); 
+    let reviewText = document.createElement("div");
+    let node = document.createTextNode(''); 
     reviewText.appendChild(node);
     reviewText.className = 'review';
     document.getElementById("reviewSection").style.display = "block";
@@ -229,9 +229,9 @@ function validateForm()
         valid = false;
     }
 
-    if (!userPattern.test(username))
+    if (!userPattern.test(username) || /^[0-9]/.test(username))
     {
-        errorMessage("Username can only contain letter A-Z, 0-9, and be between 3-20 characters", 'usernameField');
+        errorMessage("Username can't start with a number, and can only contain letter A-Z, 0-9.", 'usernameField');
         valid = false;
     }
 
@@ -324,8 +324,8 @@ function validateField() {
     if(this.id === 'usr') {
         clearErrors('usernameField');
 
-        if (!userPattern.test(value)) {
-            errorMessage("Username can only contain letter A-Z, 0-9, and be between 3-20 characters", 'usernameField');
+        if (!userPattern.test(value) || /^[0-9]/.test(value)) {
+            errorMessage("Username can't start with a number, and can only contain letter A-Z, 0-9.", 'usernameField');
         }
     }
 
@@ -366,6 +366,11 @@ for (let i=0; i<inputFields.length; i++) {
 //some additional event listeners validateField calls
 document.getElementById('stateList').addEventListener("input", validateField);
 document.getElementById('stateList').addEventListener("blur", validateField);
+
+//slider event listener
+document.getElementById('feel').addEventListener("input", function () {
+    document.getElementById('rangeVal').textContent = this.value;
+});
 
 
 /////////////////////////
