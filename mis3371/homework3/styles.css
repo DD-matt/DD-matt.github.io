@@ -72,23 +72,12 @@ table#headerTable th#links {
     font-size: 20px;
 }
 
-div#notes {
-    background-color: white;
-    width: 50%;
-    border-top: 1px solid #473F00;
-    border-left: 1px solid #473F00;
-    border-bottom: 5px solid #473F00;
-    border-right: 5px solid #473F00;
-    padding: 50px;
-    margin: auto;
-    margin-bottom: 50px;
-    border-radius: 20px;
-    bottom: 0;
-    left: 0;
-}
-
 div#notes h1 {
     text-align: center;
+}
+
+#notes {
+    margin-bottom: 20px;
 }
 
 /* div#form {
