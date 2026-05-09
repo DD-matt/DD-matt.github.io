@@ -1,5 +1,6 @@
 {
-    "p1":"tset this is a test",
-    "p2":"test for para 2",
-    "p3":"test for para 3"
+    "p1":"This is a simple patient registration form.",
+    "p2":"I am happy to have fully implemented all requirements of the assignment. Working with cookies is managable once you understand it, but I like the local storage api a lot more. Some other things I am happy about are that I cleaned up some of the organization of the code setting up folders and creating separate js and css files for the index and form htmls. Also upon successful submission I made the html formatted cleaner in the style of the form.",
+    "p3":"One thing I didn't get working yet is the date validation is not working properly. A minor bug. I would also like to format the review data format a bit better.",
+    "p4":"All in all, if you look at my homeworks from H1 to H4 you can see the gradual evolution of my registration page. From the css upgrades, javascript responsiveness, and finally the organization of code and utilization of apis."
 }
